@@ -38,6 +38,7 @@ mimeapps.list
 nvim/plugin/packer_compiled.lua
 zsh/.oh-my-zsh
 zsh/.zsh_exports_ww
+zsh/.zsh_yardi_exports
 zsh/.zsh_ww_exports
 zsh/.zsh_ww_exports_win
 zsh/.zsh_ww_scripts
