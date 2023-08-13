@@ -1,0 +1,5 @@
+#java version manager
+eval "$(jenv init -)"
+#python version manager
+eval "$(pyenv init -)"
+

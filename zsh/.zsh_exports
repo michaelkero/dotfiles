@@ -1,0 +1,41 @@
+# go exports
+export GOPATH="${HOME}/automata/go"
+export GONOPROXY=
+export GOPRIVATE=
+export GOSUMDB=
+export CGO_CFLAGS_ALLOW='-Xpreprocessor'
+export CGO_ENABLED=1
+
+# path
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:$HOME/neovim/bin
+
+# dot net
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# llvm
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# export CC="/opt/homebrew/opt/llvm/bin/clang"
+
+# pnpm
+export PNPM_HOME="~/.pnpm/store"
+export PATH="$PNPM_HOME:$PATH"
+
+# rvm
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# certs
+export NODE_EXTRA_CA_CERTS="~/.config/certs/ysi-YSIFWCERT01-CA.pem"
