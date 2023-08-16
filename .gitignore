@@ -11,7 +11,12 @@ Docker Desktop/
 Slack/
 VirtualBox/
 dlv
+enchant/
+eog/
+evince/
 evolution/
+font-manager/
+fontconfig/
 geary/
 gedit/
 github-copilot/
@@ -30,7 +35,9 @@ nvim.bak/
 pop-shell/
 pop-system-updater/
 pulse/
+qalculate/
 touchegg/
+scripts/
 gnome-initial-setup-done
 QtProject.conf
 mimeapps.list
@@ -39,3 +46,5 @@ nvim/plugin/packer_compiled.lua
 zsh/.oh-my-zsh
 zsh/secrets/
 .DS_Store
+zoom.conf
+zoomus.conf
