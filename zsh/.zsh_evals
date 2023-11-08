@@ -2,4 +2,6 @@
 eval "$(jenv init -)"
 #python version manager
 eval "$(pyenv init -)"
+#ruby version manager
+eval "$(rbenv init - zsh)"
 

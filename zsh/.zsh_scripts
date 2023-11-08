@@ -1,11 +1,23 @@
 #! /bin/bash 
+
 disablekb() {
     # detaches the keyboard
     xinput float 17
     # makes the trackpad still usable after detaching
     xinput set-prop 12 378 0
 }
+
 enablekb() {
     # reattaches the keyboard
     xinput reattach 17 3
+}
+
+temporalup() {
+    cd ~/automata/repos/others/temporalio/docker-compose/
+    docker-compose up
+}
+
+temporaldown() {
+    cd ~/automata/repos/others/temporalio/docker-compose/
+    docker-compose down
 }
