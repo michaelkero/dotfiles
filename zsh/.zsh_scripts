@@ -1,0 +1,9 @@
+temporalup() {
+    cd ~/automata/repos/others/temporalio/docker-compose/
+    docker-compose up
+}
+
+temporaldown() {
+    cd ~/automata/repos/others/temporalio/docker-compose/
+    docker-compose down
+}

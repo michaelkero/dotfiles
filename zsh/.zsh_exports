@@ -12,6 +12,8 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:$HOME/neovim/bin
+export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/opt/homebrew/opt
 
 # dot net
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
@@ -28,15 +30,10 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# llvm
-# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-# export CC="/opt/homebrew/opt/llvm/bin/clang"
-
 # pnpm
 export PNPM_HOME="~/.pnpm/store"
 export PATH="$PNPM_HOME:$PATH"
 
-# rvm
-export PATH="$PATH:$HOME/.rvm/bin"
+# rbenv
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+export CFLAGS="-Wno-error=implicit-function-declaration -Wcompound-token-split-by-macro"

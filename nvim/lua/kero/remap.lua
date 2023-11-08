@@ -17,18 +17,16 @@ vim.keymap.set("n", "<leader>9", '9gt', {noremap = true})
 vim.keymap.set("n", "<leader>10", '10gt', {noremap = true})
 
 -- windows
-vim.keymap.set("n", "<leader>wh", '<C-w>h', {noremap = true})
-vim.keymap.set("n", "<leader>wj", '<C-w>j', {noremap = true})
-vim.keymap.set("n", "<leader>wk", '<C-w>k', {noremap = true})
-vim.keymap.set("n", "<leader>wl", '<C-w>l', {noremap = true})
-vim.keymap.set("n", "WH", '20<C-w>>', {noremap = true})
-vim.keymap.set("n", "WJ", '20<C-w>-', {noremap = true})
-vim.keymap.set("n", "WK", '20<C-w>+', {noremap = true})
-vim.keymap.set("n", "WL", '20<C-w><', {noremap = true})
-vim.keymap.set("n", "<leader>wsh", '<C-w>>', {noremap = true})
-vim.keymap.set("n", "<leader>wsl", '<C-w><', {noremap = true})
-vim.keymap.set("n", "<leader>ws", ':vs<CR>', {noremap = true})
-vim.keymap.set("n", "<leader>wc", ':q<CR>', {noremap = true})
+vim.keymap.set("n", "<C-h>", '<C-w>h', {noremap = true})
+vim.keymap.set("n", "<C-j>", '<C-w>j', {noremap = true})
+vim.keymap.set("n", "<C-k>", '<C-w>k', {noremap = true})
+vim.keymap.set("n", "<C-l>", '<C-w>l', {noremap = true})
+vim.keymap.set("n", "<leader>h", '20<C-w>>', {noremap = true})
+vim.keymap.set("n", "<leader>j", '20<C-w>-', {noremap = true})
+vim.keymap.set("n", "<leader>k", '20<C-w>+', {noremap = true})
+vim.keymap.set("n", "<leader>l", '20<C-w><', {noremap = true})
+vim.keymap.set("n", "<C-s>", ':vs<CR>', {noremap = true})
+vim.keymap.set("n", "<C-c>", ':q<CR>', {noremap = true})
 
 -- Let 'tl' toggle between this and the last accessed tab
 -- vim.g.lasttab = 1
