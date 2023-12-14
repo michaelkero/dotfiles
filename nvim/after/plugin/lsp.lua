@@ -12,8 +12,6 @@ lsp.ensure_installed({
 	'eslint',
 	'rust_analyzer',
     'gopls',
-    -- 'golangci_lint_ls',
-    'solargraph',
 })
 
 local cmp = require('cmp')
@@ -44,13 +42,14 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
-lsp.setup()
 
 local lspconfig = require('lspconfig')
 lspconfig.rust_analyzer.setup {
     on_attach = lsp.on_attach,
 }
 lspconfig.java_language_server.setup{}
+lspconfig.csharp_ls.setup{}
+lsp.setup()
 -- mason did not like installing this directly so manually pulled the gem and here we are...
 -- lspconfig.solargraph.setup()
 

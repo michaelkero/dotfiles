@@ -19,6 +19,25 @@
       </monitor>
     </logicalmonitor>
     <logicalmonitor>
+      <x>7680</x>
+      <y>960</y>
+      <scale>1</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>eDP-1</connector>
+          <vendor>LGD</vendor>
+          <product>0x06b3</product>
+          <serial>0x00000000</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1200</height>
+          <rate>59.950172424316406</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
       <x>0</x>
       <y>0</y>
       <scale>1</scale>
@@ -33,25 +52,6 @@
           <width>3840</width>
           <height>2160</height>
           <rate>59.996623992919922</rate>
-        </mode>
-      </monitor>
-    </logicalmonitor>
-    <logicalmonitor>
-      <x>7680</x>
-      <y>280</y>
-      <scale>1</scale>
-      <primary>yes</primary>
-      <monitor>
-        <monitorspec>
-          <connector>eDP-1</connector>
-          <vendor>LGD</vendor>
-          <product>0x06b3</product>
-          <serial>0x00000000</serial>
-        </monitorspec>
-        <mode>
-          <width>1920</width>
-          <height>1200</height>
-          <rate>59.950172424316406</rate>
         </mode>
       </monitor>
     </logicalmonitor>
@@ -71,7 +71,7 @@
         <mode>
           <width>3840</width>
           <height>2160</height>
-          <rate>59.996623992919922</rate>
+          <rate>30</rate>
         </mode>
       </monitor>
     </logicalmonitor>
@@ -89,13 +89,13 @@
         <mode>
           <width>3840</width>
           <height>2160</height>
-          <rate>30</rate>
+          <rate>59.996623992919922</rate>
         </mode>
       </monitor>
     </logicalmonitor>
     <logicalmonitor>
       <x>7680</x>
-      <y>276</y>
+      <y>960</y>
       <scale>1</scale>
       <primary>yes</primary>
       <monitor>

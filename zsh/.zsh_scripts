@@ -1,15 +1,14 @@
 #! /bin/bash 
 
+# this parses the xinput of the xinput list to get the id of the buildin keyboard
+KEYBOARD_DEVICE=$(xinput list | awk '/AT Translated Set 2 keyboard/ {split($7,a,"="); print a[2]}')
+
 disablekb() {
-    # detaches the keyboard
-    xinput float 17
-    # makes the trackpad still usable after detaching
-    xinput set-prop 12 378 0
+    xinput float $KEYBOARD_DEVICE
 }
 
 enablekb() {
-    # reattaches the keyboard
-    xinput reattach 17 3
+    xinput reattach $KEYBOARD_DEVICE 3
 }
 
 temporalup() {

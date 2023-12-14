@@ -42,5 +42,5 @@ export PATH="$PNPM_HOME:$PATH"
 # rbenv
 if [[ "$OSTYPE" == "darwin" ]] then
     export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+    export CFLAGS="-Wno-error=implicit-function-declaration -Wcompound-token-split-by-macro"
 fi
-export CFLAGS="-Wno-error=implicit-function-declaration -Wcompound-token-split-by-macro"
