@@ -176,8 +176,11 @@ local config = function ()
                  --".null-ls_*",
                 },
             },
-            follow_current_file = false, -- This will find and focus the file in the active buffer every
-                                         -- time the current file is changed while the tree is open.
+            follow_current_file = {
+                enabled = false, -- This will find and focus the file in the active buffer every time
+                --               -- the current file is changed while the tree is open.
+                leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+            },
             group_empty_dirs = false, -- when true, empty folders will be grouped together
             hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
                                                     -- in whatever position is specified in window.position
@@ -209,8 +212,11 @@ local config = function ()
             }
         },
         buffers = {
-            follow_current_file = true, -- This will find and focus the file in the active buffer every
-                                        -- time the current file is changed while the tree is open.
+            follow_current_file = {
+                enabled = true, -- This will find and focus the file in the active buffer every time
+                --               -- the current file is changed while the tree is open.
+                leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+            },
             group_empty_dirs = true, -- when true, empty folders will be grouped together
             show_unloaded = true,
             window = {
@@ -240,8 +246,9 @@ end
 
 config();
 
-vim.keymap.set("n", "<leader>ef", ':NeoTreeClose<CR>:Neotree source=filesystem reveal=true position=left<CR>', {noremap = true})
-vim.keymap.set("n", "<leader>eb", ':NeoTreeClose<CR>:Neotree source=buffers reveal=true position=left<CR>', {noremap = true})
-vim.keymap.set("n", "<leader>eg", ':NeoTreeClose<CR>:Neotree source=git_status reveal=true position=left<CR>', {noremap = true})
-vim.keymap.set("n", "<leader>ec", ':NeoTreeClose<CR>', {noremap = true})
+vim.keymap.set("n", "<leader>ef", ':Neotree source=filesystem reveal=true position=left<CR>', {noremap = true})
+vim.keymap.set("n", "<leader>eb", ':Neotree source=buffers reveal=true position=left<CR>', {noremap = true})
+vim.keymap.set("n", "<leader>eg", ':Neotree source=git_status reveal=true position=left<CR>', {noremap = true})
+--vim.keymap.set("n", "<leader>ec", ':NeoTreeClose<CR>', {noremap = true})
+
 

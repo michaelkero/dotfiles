@@ -38,3 +38,4 @@ vim.keymap.set("n", "<leader>fj", ":%!jq .<CR>", {noremap = true}) -- formats js
 vim.keymap.set("n", "<leader>cj", ":.!quicktype -l go --just-types<CR>", {noremap = true})
 vim.keymap.set("n", "<leader>cj", ":.!quicktype -l go --just-types --top-level ", {noremap = true})
 
+
