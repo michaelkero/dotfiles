@@ -9,7 +9,7 @@ return {
         "MunifTanjim/nui.nvim",
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
-    config =function (  )
+    config = function (  )
         local config = function ()
             -- Unless you are still migrating, remove the deprecated commands from v1.x
             vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
@@ -90,12 +90,12 @@ return {
                     git_status = {
                         symbols = {
                             -- Change type
-                            added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-                            modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+                            added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
+                            modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
                             deleted   = "✖",-- this can only be used in the git_status source
                             renamed   = "",-- this can only be used in the git_status source
                             -- Status type
-                            -- untracked = "",
+                            untracked = "",
                             ignored   = "",
                             unstaged  = "",
                             staged    = "",
@@ -132,7 +132,7 @@ return {
                         ["C"] = "close_node",
                         -- ['C'] = 'close_all_subnodes',
                         ["z"] = "close_all_nodes",
-                        --["Z"] = "expand_all_nodes",
+                        ["Z"] = "expand_all_nodes",
                         ["a"] = {
                             "add",
                             -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details

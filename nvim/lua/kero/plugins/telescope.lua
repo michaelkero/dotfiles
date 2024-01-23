@@ -5,7 +5,7 @@ return {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-fzy-native.nvim'
         },
-        config =function ()
+        config = function ()
             require('telescope').setup {
                 file_ignore_patterns = { "node%_modules/.*" }
             }
@@ -27,7 +27,7 @@ return {
         dependencies = {
             'nvim-telescope/telescope.nvim',
         },
-        config =function ()
+        config = function ()
             local telescope = require("telescope")
             telescope.setup {
                 extensions = {

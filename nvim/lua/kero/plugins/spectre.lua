@@ -1,6 +1,6 @@
 return {
     'nvim-pack/nvim-spectre',
-    config =function ()
+    config = function ()
         vim.keymap.set('n', '<leader>ss', '<cmd>lua require("spectre").open()<CR>', {
             desc = "Open Spectre"
         })
