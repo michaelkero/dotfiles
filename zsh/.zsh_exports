@@ -1,3 +1,4 @@
+export XDG_CONFIG_HOME="${HOME}/.config"
 # go exports
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	export GO_ROOT=/usr/local/go

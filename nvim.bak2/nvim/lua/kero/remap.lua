@@ -41,5 +41,3 @@ vim.keymap.set("n", "<leader>cj", ":.!quicktype -l go --just-types --top-level "
 -- inlay hints
 vim.keymap.set("n", "<leader>hs", ":lua vim.lsp.inlay_hint.enable(true) <CR>", {noremap = true})
 vim.keymap.set("n", "<leader>hh", ":lua vim.lsp.inlay_hint.enable(false) <CR>", {noremap = true})
-
-
