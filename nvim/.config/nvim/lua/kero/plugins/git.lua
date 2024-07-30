@@ -1,28 +1,22 @@
 return {
     {
-        "kdheepak/lazygit.nvim",
+        "tpope/vim-fugitive",
         keys = {
-            { "<leader>gg", ":LazyGit<CR>", desc = "LazyGit" },
-        },
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-    {
-        "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup()
-
-            vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {noremap = true})
-       end
-    },
-    {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "sindrets/diffview.nvim",
-            "nvim-telescope/telescope.nvim",
-        },
-        config = true
+            {
+                "<leader>gg",
+                "<cmd>Git<cr>",
+                desc = "Git Status"
+            },
+            {
+                "<leader>gb",
+                "<cmd>Git blame<cr>",
+                desc = "Git Blame"
+            },
+            {
+                "<leader>gd",
+                "<cmd>Gvdiffsplit<cr>",
+                desc = "Git Diff"
+            },
+        }
     }
 }

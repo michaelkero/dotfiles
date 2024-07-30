@@ -25,7 +25,7 @@ return {
             -- .NET
             dap.adapters.coreclr = {
                 type = 'executable',
-                command = '/usr/local/bin/netcoredbg/netcoredbg',
+                command = '/usr/local/netcoredbg',
                 args = { '--interpreter=vscode' }
             }
 

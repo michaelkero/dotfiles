@@ -14,11 +14,54 @@ return {
                     'tsserver',
                     'rust_analyzer',
                     'omnisharp',
-                    --'csharp_ls',
+                    -- 'csharp_ls',
                     'gopls',
                 },
             })
         end
+    },
+    {
+        'neovim/nvim-lspconfig',
+        config = function ()
+            vim.api.nvim_create_autocmd('LspAttach', {
+                group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+                callback = function(ev)
+                    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+                    local opts = { buffer = ev.buf }
+
+                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+                    vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, {})
+                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+                    vim.keymap.set('n', 'sd', vim.lsp.buf.hover, opts)
+                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+                    vim.keymap.set('n', 'gh', vim.lsp.buf.signature_help, opts)
+
+                    vim.keymap.set("n", '<leader>ws', vim.lsp.buf.workspace_symbol, {})
+                    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+                    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+                    vim.keymap.set('n', '<leader>wl', function()
+                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                    end, opts)
+
+                    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+                    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+                    vim.keymap.set('n', '<leader>f', function()
+                        vim.lsp.buf.format { async = true }
+                    end, opts)
+
+                    vim.keymap.set("n", "sdd", vim.diagnostic.open_float, {})
+                    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
+                    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
+                end,
+            })
+        end
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        opts = {},
+        config = function(_, opts) require'lsp_signature'.setup(opts) end
     },
     {
         'Hoffs/omnisharp-extended-lsp.nvim',
@@ -38,7 +81,7 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.omnisharp.setup({
-                cmd = { "dotnet", "/home/kero/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll"},
+                cmd = { "dotnet", "/home/kero_ambr/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll"},
                 settings = {
                     FormattingOptions = {
                         -- Enables support for reading code style, naming convention and analyzer
@@ -102,48 +145,4 @@ return {
             })
         end
     },
-    {
-        'neovim/nvim-lspconfig',
-        config = function ()
-            vim.api.nvim_create_autocmd('LspAttach', {
-                group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-                callback = function(ev)
-                    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-                    local opts = { buffer = ev.buf }
-
-                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-                    vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, {})
-                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-                    vim.keymap.set('n', 'sd', vim.lsp.buf.hover, opts)
-                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-                    vim.keymap.set('n', 'gh', vim.lsp.buf.signature_help, opts)
-
-                    vim.keymap.set("n", '<leader>ws', vim.lsp.buf.workspace_symbol, {})
-                    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-                    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-                    vim.keymap.set('n', '<leader>wl', function()
-                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                    end, opts)
-
-                    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-                    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-                    vim.keymap.set('n', '<leader>f', function()
-                        vim.lsp.buf.format { async = true }
-                    end, opts)
-
-                    vim.keymap.set("n", "sdd", vim.diagnostic.open_float, {})
-                    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
-                    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
-                end,
-            })
-        end
-    },
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "VeryLazy",
-        opts = {},
-        config = function(_, opts) require'lsp_signature'.setup(opts) end
-    }
 }
