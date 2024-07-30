@@ -45,8 +45,8 @@ QtProject.conf
 mimeapps.list
 .gsd-keyboard.settings-ported
 nvim/plugin/packer_compiled.lua
-zsh/.oh-my-zsh
-zsh/secrets/
+zsh/.config/zsh/.oh-my-zsh
+zsh/.config/zsh/secrets/
 .DS_Store
 zoom.conf
 zoomus.conf
