@@ -2,6 +2,7 @@
 
 # this parses the xinput of the xinput list to get the id of the buildin keyboard
 KEYBOARD_DEVICE=$(xinput list | awk '/AT Translated Set 2 keyboard/ {split($7,a,"="); print a[2]}')
+TOUCHPAD_DEVICE=$(xinput list | awk '/VEN_06CB:00 06CB:CE7E Touchpad/ {split($7,a,"="); print a[2]}')
 
 disablekb() {
     xinput float $KEYBOARD_DEVICE

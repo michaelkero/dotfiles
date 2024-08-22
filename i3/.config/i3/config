@@ -35,7 +35,11 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i ~/dotfiles/i3/.config/i3/lock-screen.png
+# exec --no-startup-id xautolock -time 10 -locker "systemctl suspend"
+# Lock and suspend
+bindsym $mod+Ctrl+l exec --no-startup-id i3lock -n -i ~/dotfiles/i3/.config/i3/lock-screen.png
+
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -64,6 +68,7 @@ floating_modifier $mod
 bindsym $mod+Shift+t exec kitty
 bindsym $mod+Shift+b exec google-chrome
 bindsym $mod+Shift+s exec slack
+bindsym $mod+Shift+p exec postman
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,8 +207,12 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         position top
-        separator_symbol ":|:"
-        i3bar_command i3bar --transparency
-
+        separator_symbol " : | : "
 }
+
+# application specific configurations
+# zoom is annoying
+for_window [class="(.*join\?action\=join.*|.*zoom.*)"] floating enable
+for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Licensed Account"] floating disable
+for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floating disable
 
