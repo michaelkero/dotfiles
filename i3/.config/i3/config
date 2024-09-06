@@ -36,7 +36,7 @@ exec --no-startup-id dex --autostart --environment i3
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i ~/dotfiles/i3/.config/i3/lock-screen.png
-# exec --no-startup-id xautolock -time 10 -locker "systemctl suspend"
+exec --no-startup-id xautolock -time 10 -locker "systemctl suspend"
 # Lock and suspend
 bindsym $mod+Ctrl+l exec --no-startup-id i3lock -n -i ~/dotfiles/i3/.config/i3/lock-screen.png
 
@@ -55,6 +55,7 @@ exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore
 
 # Use pactl to adjust volume in PulseAudio.
+exec --no-startup-id volumeicon
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -69,6 +70,7 @@ bindsym $mod+Shift+t exec kitty
 bindsym $mod+Shift+b exec google-chrome
 bindsym $mod+Shift+s exec slack
 bindsym $mod+Shift+p exec postman
+bindsym $mod+Shift+f exec nautilus
 
 # kill focused window
 bindsym $mod+Shift+q kill
