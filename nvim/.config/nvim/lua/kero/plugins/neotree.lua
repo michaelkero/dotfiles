@@ -102,7 +102,7 @@ return {
                 },
             },
             window = {
-                position = "left",
+                position = "right",
                 width = 40,
                 mapping_options = {
                     noremap = true,
@@ -253,9 +253,9 @@ return {
             }
         })
 
-        vim.keymap.set("n", "<leader>ef", ':Neotree source=filesystem reveal=true position=left<CR>', { noremap = true })
-        vim.keymap.set("n", "<leader>eb", ':Neotree source=buffers reveal=true position=left<CR>', { noremap = true })
-        vim.keymap.set("n", "<leader>eg", ':Neotree source=git_status reveal=true position=left<CR>', { noremap = true })
+        vim.keymap.set("n", "<leader>ef", ':Neotree source=filesystem reveal=true position=right<CR>', { noremap = true })
+        vim.keymap.set("n", "<leader>eb", ':Neotree source=buffers reveal=true position=right<CR>', { noremap = true })
+        vim.keymap.set("n", "<leader>eg", ':Neotree source=git_status reveal=true position=right<CR>', { noremap = true })
         --vim.keymap.set("n", "<leader>ec", ':NeoTreeClose<CR>', {noremap = true})
     end
 }

@@ -56,3 +56,4 @@ export PATH=$PATH:$HOME/neovim/bin
 export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/opt/homebrew/opt
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export PATH=$PATH:/usr/pgadmin4/bin

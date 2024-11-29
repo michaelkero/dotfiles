@@ -22,6 +22,9 @@ for_window [class="^.*"] border pixel 4
 gaps inner 10
 # gaps outer 5
 
+# not move focus on mouse move
+focus_follows_mouse no
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -36,9 +39,10 @@ exec --no-startup-id dex --autostart --environment i3
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i ~/dotfiles/i3/.config/i3/lock-screen.png
-exec --no-startup-id xautolock -time 10 -locker "systemctl suspend"
+exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
+
 # Lock and suspend
-bindsym $mod+Ctrl+l exec --no-startup-id i3lock -n -i ~/dotfiles/i3/.config/i3/lock-screen.png
+bindsym $mod+Shift+x exec --no-startup-id i3lock -n -i ~/dotfiles/i3/.config/i3/lock-screen.png
 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -49,10 +53,11 @@ exec --no-startup-id nm-applet
 exec --no-startup-id autorandr --change
 
 # Picom compositor
-exec --no-startup-id picom
+# exec --no-startup-id picom
 
-# Nitrogen for the wallpapers
-exec --no-startup-id nitrogen --restore
+# Wallpapers
+# exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --bg-scale --zoom fill ~/dotfiles/i3/.config/i3/lock-screen.png
 
 # Use pactl to adjust volume in PulseAudio.
 exec --no-startup-id volumeicon
@@ -66,11 +71,16 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start applications
-bindsym $mod+Shift+t exec kitty
+# terminal
+bindsym $mod+Shift+t exec kitty 
+# browser
 bindsym $mod+Shift+b exec google-chrome
+# file browser
+bindsym $mod+Shift+f exec nautilus
+# application specific
 bindsym $mod+Shift+s exec slack
 bindsym $mod+Shift+p exec postman
-bindsym $mod+Shift+f exec nautilus
+bindsym $mod+Shift+z exec zoom
 
 # kill focused window
 bindsym $mod+Shift+q kill
