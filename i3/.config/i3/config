@@ -74,7 +74,7 @@ floating_modifier $mod
 # terminal
 bindsym $mod+Shift+t exec kitty 
 # browser
-bindsym $mod+Shift+b exec google-chrome
+bindsym $mod+Shift+b exec brave-browser
 # file browser
 bindsym $mod+Shift+f exec nautilus
 # application specific
