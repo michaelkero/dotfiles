@@ -25,6 +25,7 @@ gaps inner 10
 # not move focus on mouse move
 focus_follows_mouse no
 no_focus [window_role="pop-up"]
+focus_on_window_activation none
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
