@@ -22,9 +22,18 @@ temporaldown() {
     docker-compose down
 }
 
-endsess() {
+vpnend() {
     openvpn3 sessions-list | grep Path: | awk '{print $2}' | while read -r line ; do
         echo "Closing connection $line"
         openvpn3 session-manage --session-path $line --disconnect
     done
+}
+
+vpnstart() {
+    openvpn3 session-start --config CloudConnexa
+}
+
+vpnrestart() {
+    vpnend
+    vpnstart
 }

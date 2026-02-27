@@ -1,20 +1,20 @@
 return {
     {
         'williamboman/mason.nvim',
-        config = function ()
+        config = function()
             require('mason').setup({})
         end
     },
     {
         'williamboman/mason-lspconfig.nvim',
-        config = function ()
+        config = function()
             require('mason-lspconfig').setup({
                 ensure_installed = {
+                    'omnisharp',
+                    -- 'csharp_ls',
                     'lua_ls',
                     'tsserver',
                     'rust_analyzer',
-                    'omnisharp',
-                    -- 'csharp_ls',
                     'gopls',
                 },
             })
@@ -22,7 +22,7 @@ return {
     },
     {
         'neovim/nvim-lspconfig',
-        config = function ()
+        config = function()
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('UserLspConfig', {}),
                 callback = function(ev)
@@ -61,14 +61,14 @@ return {
     {
         "ray-x/lsp_signature.nvim",
         opts = {},
-        config = function(_, opts) require'lsp_signature'.setup(opts) end
+        config = function(_, opts) require 'lsp_signature'.setup(opts) end
     },
     {
         'Hoffs/omnisharp-extended-lsp.nvim',
     },
     {
         'hrsh7th/cmp-nvim-lsp',
-        config = function ()
+        config = function()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lspconfig = require('lspconfig')
             lspconfig.lua_ls.setup({
@@ -81,7 +81,7 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.omnisharp.setup({
-                cmd = { "dotnet", "/home/kero_ambr/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll"},
+                cmd = { "dotnet", "/home/kero_ambr/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
                 settings = {
                     FormattingOptions = {
                         -- Enables support for reading code style, naming convention and analyzer
@@ -121,9 +121,9 @@ return {
                     },
                 },
                 capabilities = capabilities,
-			    enable_roslyn_analysers = true,
-				enable_import_completion = true,
-				enable_decompilation_support = true,
+                enable_roslyn_analysers = true,
+                enable_import_completion = true,
+                enable_decompilation_support = true,
                 filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' },
                 handlers = {
                     ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
@@ -134,11 +134,11 @@ return {
             })
             --lspconfig.csharp_ls.setup({
             --    capabilities = capabilities,
-			--    enable_roslyn_analysers = true,
-			--	enable_import_completion = true,
-			--    organize_imports_on_format = true,
-			--	enable_decompilation_support = true,
-			--	filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
+            --    enable_roslyn_analysers = true,
+            --	enable_import_completion = true,
+            --    organize_imports_on_format = true,
+            --	enable_decompilation_support = true,
+            --	filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
             --})
             lspconfig.gopls.setup({
                 capabilities = capabilities,
