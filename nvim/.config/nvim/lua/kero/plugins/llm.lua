@@ -1,21 +1,21 @@
 return {
-    {
-    dir = "~/automata/repos/xTacobaco/cursor-agent.nvim",
-        -- "xTacobaco/cursor-agent.nvim",
-        config = function()
-            vim.keymap.set("n", "<leader>cc", ":CursorAgent<CR>", { desc = "Cursor Agent: Toggle terminal" })
-            vim.keymap.set("v", "<leader>cc", ":CursorAgentSelection<CR>", { desc = "Cursor Agent: Send selection" })
-            vim.keymap.set("n", "<leader>cC", ":CursorAgentBuffer<CR>", { desc = "Cursor Agent: Send buffer" })
-            require("cursor-agent").setup({
-              window = {
-                layout = "split",
-                split = {
-                    side = 'bottom'
-                }
-              }
-            })
-        end
-    },
+--     {
+--    dir = "~/automata/repos/xTacobaco/cursor-agent.nvim",
+--        -- "xTacobaco/cursor-agent.nvim",
+--        config = function()
+--            vim.keymap.set("n", "<leader>cc", ":CursorAgent<CR>", { desc = "Cursor Agent: Toggle terminal" })
+--            vim.keymap.set("v", "<leader>cc", ":CursorAgentSelection<CR>", { desc = "Cursor Agent: Send selection" })
+--            vim.keymap.set("n", "<leader>cC", ":CursorAgentBuffer<CR>", { desc = "Cursor Agent: Send buffer" })
+--            require("cursor-agent").setup({
+--              window = {
+--                layout = "split",
+--                split = {
+--                    side = 'bottom'
+--                }
+--              }
+--            })
+--        end
+--    },
     {
         "coder/claudecode.nvim",
         dependencies = { "folke/snacks.nvim" },
