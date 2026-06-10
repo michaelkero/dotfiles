@@ -11,11 +11,12 @@ return {
             require('mason-lspconfig').setup({
                 ensure_installed = {
                     'omnisharp',
+                    'omnisharp_extended',
                     -- 'csharp_ls',
                     'lua_ls',
-                    'tsserver',
+                    -- 'tsserver',
                     'rust_analyzer',
-                    'gopls',
+                    -- 'gopls',
                 },
             })
         end
@@ -70,7 +71,7 @@ return {
         'hrsh7th/cmp-nvim-lsp',
         config = function()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            local lspconfig = require('lspconfig')
+            local lspconfig = vim.lsp.config
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
@@ -81,7 +82,7 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.omnisharp.setup({
-                cmd = { "dotnet", "/home/kero_ambr/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+                cmd = { "dotnet", "${CONFIG_HOME}/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
                 settings = {
                     FormattingOptions = {
                         -- Enables support for reading code style, naming convention and analyzer

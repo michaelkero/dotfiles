@@ -25,7 +25,7 @@ return {
             -- .NET
             dap.adapters.coreclr = {
                 type = 'executable',
-                command = '/usr/local/netcoredbg',
+                command = '/home/kero/.config/netcoredbg/netcoredbg',
                 args = { '--interpreter=vscode' }
             }
 
