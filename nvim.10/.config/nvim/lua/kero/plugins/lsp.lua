@@ -23,6 +23,9 @@ return {
     },
     {
         'neovim/nvim-lspconfig',
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+        },
         config = function()
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('UserLspConfig', {}),
