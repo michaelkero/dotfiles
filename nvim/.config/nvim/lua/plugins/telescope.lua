@@ -18,13 +18,16 @@ return {
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
             vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
             vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
-            vim.keymap.set('n', '<leader>fw', function()
-                local region = vim.fn.getregion(vim.fn.getpos('v'), vim.fn.getpos('.'), {
-                    type = 'v',
-                    exclusive = false,
-                    eol = false,
+            vim.keymap.set('v', '<leader>fw', function()
+                builtin.grep_string({ default_text = vim.fn.getregion(
+                    vim.fn.getpos('v'), 
+                    vim.fn.getpos('.'), 
+                    {
+                        type = 'v',
+                        exclusive = false,
+                        eol = false,
+                    })
                 })
-                builtin.grep_string({ default_text = region });
             end)
             vim.keymap.set('n', '<leader>fs', function()
                 builtin.grep_string({ search = vim.fn.input("Grep > ") });

@@ -1,3 +1,4 @@
-background-opacity=0.95
+background-opacity=0.92
 foreground = dddddd
 background = 000000
+font-size = 11

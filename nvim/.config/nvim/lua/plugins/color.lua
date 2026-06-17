@@ -1,6 +1,6 @@
 return {
-    "sho-87/kanagawa-paper.nvim",
-    -- 'AlexvZyl/nordic.nvim',
+    -- "sho-87/kanagawa-paper.nvim",
+    'AlexvZyl/nordic.nvim',
     -- name = "nordic", 
     -- 'rose-pine/neovim',
     -- name = 'rose-pine',
@@ -8,8 +8,8 @@ return {
     -- name = "catppuccin-macchiato", 
     priority = 1000,
     config = function ()
-        vim.cmd.colorscheme("kanagawa-paper")
-        -- vim.cmd.colorscheme("nordic")
+        -- vim.cmd.colorscheme("kanagawa-paper")
+        vim.cmd.colorscheme("nordic")
         -- vim.cmd.colorscheme("rose-pine")
         -- vim.cmd.colorscheme("catppuccin-macchiato")
 
