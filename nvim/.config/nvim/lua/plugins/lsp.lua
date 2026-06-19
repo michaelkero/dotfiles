@@ -79,7 +79,7 @@ return {
                 enable_roslyn_analysers = true,
                 enable_import_completion = true,
                 enable_decompilation_support = true,
-                -- filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' },
+                filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' },
                 handlers = {
                     ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
                     ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
@@ -128,11 +128,15 @@ return {
             })
         end
     },
-    {
-        "ray-x/lsp_signature.nvim",
-        opts = {},
-        config = function(_, opts) require 'lsp_signature'.setup(opts) end
-    },
+    -- {
+    --     "ray-x/lsp_signature.nvim",
+    --     opts = {
+    --         auto_trigger = false,
+    --     },
+    --     config = function(_, opts)
+    --         require 'lsp_signature'.setup(opts)
+    --     end
+    -- },
     {
         'Hoffs/omnisharp-extended-lsp.nvim',
     },
