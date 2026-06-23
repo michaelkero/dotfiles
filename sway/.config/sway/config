@@ -17,11 +17,16 @@ set $up k
 set $right l
 
 # border options
-# for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 4
 
 # gaps
 gaps inner 10px
 # gaps outer 5
+
+# not move focus on mouse move
+focus_follows_mouse no
+no_focus [window_role="pop-up"]
+focus_on_window_activation none
 
 # Your preferred terminal emulator
 set $term ghostty
@@ -43,10 +48,10 @@ output eDP-1 resolution 1920x1080 scale 0.75
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+    timeout 300 'swaylock -f -i ~/dotfiles/sway/.config/sway/bg1.jpg' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -70,6 +75,9 @@ output eDP-1 resolution 1920x1080 scale 0.75
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
 
+# tray apps
+exec --no-startup-id nm-applet
+
 ### Key bindings
 #
 # Basics:
@@ -80,20 +88,19 @@ output eDP-1 resolution 1920x1080 scale 0.75
     # browser
     bindsym $mod+Shift+b exec brave-browser
     # file browser
-    bindsym $mod+Shift+f exec nautilus
+    bindsym $mod+Shift+f exec cosmic-files
     # application specific
     bindsym $mod+Shift+s exec slack
     bindsym $mod+Shift+p exec postman
     bindsym $mod+Shift+z exec zoom
-
-    # Start a terminal
-    bindsym $mod+Return exec $term
+    # bindsym $mod+Shift+w exec cosmic-edit
+    
+    # Start your launcher
+    bindsym $mod+space exec $menu
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
-    bindsym $mod+m exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -173,15 +180,14 @@ output eDP-1 resolution 1920x1080 scale 0.75
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+t focus mode_toggle
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    # bindsym $mod+space focus mode_toggle
+    # bindsym $mod+Shift+space floating toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -272,12 +278,22 @@ bar {
 # for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Licensed Account"] floating disable
 # for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floating disable
 
-for_window [app_id="zoom"] floating enable
-for_window [app_id="zoom" title="Choose ONE of the audio conference options"] floating enable
-for_window [app_id="zoom" title="zoom"] floating enable
-for_window [app_id="zoom" title="Zoom Workplace*"] floating enable
-for_window [app_id="zoom" title="Meeting"] floating enable
-for_window [app_id="zoom" title="Zoom - Free Account"] floating enable
-for_window [app_id="zoom" title="Zoom - Licensed Account"] floating enable
+# borrowed some configs from https://github.com/madic-creates/Sway-DE/blob/master/config/sway/sway.d/06_floating.conf
+for_window [window_role = "pop-up"] floating enable
+for_window [window_role = "bubble"] floating enable
+for_window [window_role = "dialog"] floating enable
+for_window [window_type = "dialog"] floating enable
+for_window [window_role = "task_dialog"] floating enable
+for_window [window_type = "menu"] floating enable
+
+for_window [app_id="Zoom"] floating enable
+for_window [app_id="Zoom"] floating enable
+for_window [class="zoom"] floating enable
+for_window [app_id="Zoom" title="Choose ONE of the audio conference options"] floating enable
+for_window [app_id="Zoom" title="zoom"] floating enable
+for_window [app_id="Zoom" title="Zoom Workplace*"] floating enable
+for_window [app_id="Zoom" title="Zoom Meeting"] floating enable
+for_window [app_id="Zoom" title="Zoom - Free Account"] floating enable
+for_window [app_id="Zoom" title="Zoom - Licensed Account"] floating enable
 
 include @sysconfdir@/sway/config.d/*

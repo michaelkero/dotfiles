@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "modules-left": ["sway/workspaces"],
-  "modules-right": ["network", "battery", "cpu", "memory", "clock", "tray"],
+  "modules-right": ["network", "battery", "cpu", "memory", "custom/volume", "clock", "tray"],
   "network": {
     "format-wifi": "  {essid} ({signalStrength}%)",
     "format-ethernet": "󰈀  {ipaddr}/{cidr}",
@@ -29,5 +29,21 @@
     "format": "{:%H:%M}",
     "tooltip-format": "{calendar}"
     // "tooltip-format": "{:%A, %d %B %Y}"
-  }
+  },
+  "custom/volume": {
+    "exec": "waybar-volume",
+    // "format": "{volume}% {icon}",
+    "on-click": "waybar-volume click-left",
+    "on-scroll-up": "waybar-volume scroll-up",
+    "on-scroll-down": "waybar-volume scroll-down",
+    "interval": 1,
+    "return-type": "json"
+  }// ,
+  // "wireplumber": {
+  //   "format": "{volume}% {icon}",
+  //   "format-muted": " Muted",
+  //   "format-icons": ["", "", ""], // Low, Medium, High
+  //   "scroll-step": 5,
+  //   "on-click": "pavucontrol" // Opens mixer on left click
+  // }
 }
