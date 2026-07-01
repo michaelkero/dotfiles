@@ -45,8 +45,20 @@ return {
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lsps = {
                 { "lua_ls" , { capabilities = capabilities } },
-                { "rust_analyzer", { capabilities = capabilities } },
-                { "ts_ls", { 
+                { "rust_analyzer", {
+                    capabilities = capabilities,
+                    settings = {
+                        ['rust-analyzer'] = {
+                            cachePriming = { enable = false },
+                            server = {
+                                extraEnv = {
+                                    RUST_MIN_STACK = "16777216",
+                                },
+                            },
+                        },
+                    },
+                }},
+                { "ts_ls", {
                     capabilities = capabilities,
                     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
                     settings = {

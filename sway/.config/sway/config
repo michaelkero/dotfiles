@@ -103,6 +103,8 @@ exec --no-startup-id nm-applet
     bindsym $mod+Shift+p exec postman
     bindsym $mod+Shift+z exec zoom
     # bindsym $mod+Shift+w exec cosmic-edit
+
+    bindsym $mod+Print exec sway-screenshot -m region --clipboard-only
     
     # Start your launcher
     bindsym $mod+space exec $menu
