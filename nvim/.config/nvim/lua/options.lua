@@ -59,15 +59,15 @@ end
 
 vim.g.editorconfig = false
 
-vim.g.clipboard = {
-  name = 'wl-clipboard',
-  copy = {
-    ['+'] = 'wl-copy',
-    ['*'] = 'wl-copy --primary',
-  },
-  paste = {
-    ['+'] = 'wl-paste',
-    ['*'] = 'wl-paste --primary',
-  },
-  cache_enabled = 0,
-}
+-- vim.g.clipboard = {
+--   name = 'wl-clipboard',
+--   copy = {
+--     ['+'] = 'wl-copy',
+--     ['*'] = 'wl-copy --primary',
+--   },
+--   paste = {
+--     ['+'] = 'wl-paste',
+--     ['*'] = 'wl-paste --primary',
+--   },
+--   cache_enabled = 0,
+-- }
