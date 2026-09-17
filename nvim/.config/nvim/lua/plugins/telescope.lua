@@ -8,7 +8,7 @@ return {
         },
         config = function ()
             require('telescope').setup {
-                file_ignore_patterns = { ".git/.*", "node%_modules/.*" }
+                file_ignore_patterns = { ".git/.*", "node%_modules/.*", ".*/.git/.*", ".*/node%_modules/.*" }
             }
             -- finding
             local builtin = require('telescope.builtin')
